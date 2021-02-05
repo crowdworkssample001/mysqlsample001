@@ -13,12 +13,18 @@ const server = express()
 const wss = new Server({ server });
 
 wss.on("connection", (ws) => {
-  console.log("Client connected");
+  console.log("Client connected:");
+  ws.onmessage = (event) => {
+    console.log("event.data: " + event.data);
+    wss.clients.forEach((client) => {
+      client.send(event.data);
+    });
+  };
   ws.on("close", () => console.log("Client disconnected"));
 });
 
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+// setInterval(() => {
+//   wss.clients.forEach((client) => {
+//     client.send(new Date().toTimeString());
+//   });
+// }, 1000);
