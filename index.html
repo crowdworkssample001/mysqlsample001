@@ -5,11 +5,14 @@
     <script>
       const host = location.origin.replace(/^http(s?)/, "ws$1");
       const ws = new WebSocket(host);
-      ws.onopen = function () {
+      ws.onopen = function (e) {
         console.log("connected: " + host);
       };
-      ws.onclose = () => {
+      ws.onclose = (e) => {
         console.log("terminated");
+      };
+      ws.onmessage = (e) => {
+        console.log("received:" + host + " : " + e.data);
       };
       document.getElementById("cmdbutton").addEventListener("click", (e) => {
         const text = document.getElementById("cmdtext").value;
