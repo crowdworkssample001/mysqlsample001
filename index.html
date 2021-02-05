@@ -12,7 +12,8 @@
         console.log("terminated");
       };
       document.getElementById("cmdbutton").addEventListener("click", (e) => {
-        ws.send(document.getElementById("cmdtext").value);
+        const text = document.getElementById("cmdtext").value;
+        if (text) ws.send(text);
         console.log("ws.send");
       });
     </script>
