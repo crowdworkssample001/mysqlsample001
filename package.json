@@ -1,0 +1,19 @@
+{
+  "name": "mysqlsample001",
+  "version": "1.0.0",
+  "description": "mysqlsample001",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bufferutil": "^4.x.x",
+    "express": "^4.x.x",
+    "utf-8-validate": "^5.x.x",
+    "ws": "^7.x.x"
+  }
+}
